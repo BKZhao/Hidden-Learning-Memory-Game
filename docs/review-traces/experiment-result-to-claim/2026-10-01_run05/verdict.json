@@ -1,0 +1,8 @@
+{
+  "scope": "E2 implementation and data integrity, no effect peeking",
+  "claim_supported": "yes",
+  "blocking_findings": [],
+  "confidence": "high",
+  "routing": "continue fixed E2 to completion",
+  "pending_external_review": false
+}

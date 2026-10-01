@@ -1,0 +1,17 @@
+{
+  "reviewer": "/root/pilot_review",
+  "claim_supported": "partial",
+  "confidence": "high",
+  "what_results_support": "存在公开比例操作性稳定的高合作候选；E0图3(a-c)趋势和终点量级吻合。",
+  "what_results_dont_support": "尚无适中响应主工作点；尚无隐藏Q记忆的近远因果效应；没有原作者精确数值误差验证。",
+  "missing_evidence": [
+    "N1000复验响应",
+    "隐藏Q稳定性",
+    "工作点锁定",
+    "独立确认性近远结果"
+  ],
+  "routing_action": "supplement: 完整36点独立种子规模复验；E2保持未锁定",
+  "paper_claim_audit": "unavailable",
+  "writing_verdict": "provisional",
+  "pending_external_review": false
+}

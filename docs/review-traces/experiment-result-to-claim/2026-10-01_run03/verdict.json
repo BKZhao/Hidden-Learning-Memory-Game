@@ -1,0 +1,12 @@
+{
+  "claim_supported": "yes",
+  "scope": "fixed operational work-point gate only",
+  "confidence": "high",
+  "primary_point": 0,
+  "delta": 0.3,
+  "generalization_candidate": 21,
+  "routing": "lock point then variance pilot",
+  "paper_claim_audit": "unavailable",
+  "writing_verdict": "provisional",
+  "pending_external_review": false
+}

@@ -1,0 +1,12 @@
+{
+  "stage": "E1_scale_validation",
+  "protocol_version": "memory_resilience_v1.0",
+  "root_seed": 2026100102,
+  "nodes": 1000,
+  "edges": 1600,
+  "training_mcs": 100000,
+  "workers": 4,
+  "work_point_locked": false,
+  "grid": "full_original_E1_36_points_3_replicates",
+  "launcher_sha256": "85abc418eff895b382db2a383d72b332022da9eb41242ee99ffa0d72bae39dbc"
+}

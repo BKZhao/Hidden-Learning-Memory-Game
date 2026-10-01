@@ -1,0 +1,37 @@
+{
+  "scope": "E4b paired cost phase; exploratory revision after E4 nonoverlap",
+  "source": "artifacts/e2-20261001",
+  "networks": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "history": 0,
+  "training_mcs": 100000,
+  "alpha_high": 0.3,
+  "wash_mcs": [
+    0,
+    1000,
+    10000
+  ],
+  "root_seed": 2026100130,
+  "workers": 4,
+  "minimum_pool": 20,
+  "minimum_rows": 30,
+  "minimum_fraction": 0.2,
+  "response_mcs": 5000,
+  "delta": 0.3,
+  "bootstrap_seed": 2026100131,
+  "maximum_micro_updates": 1930000000,
+  "source_sha256": "a53d036a5604e8181256f1a37f3d9056220071f8c7b71b9a383839c15d6b581e",
+  "launcher_sha256": "5237d79a6f12d878a488698e84ef3663ec09a0d7d83c68a0b31c4de02da19fbd",
+  "plan_sha256": "85aa0fa3710de150e5f3c10033eda041c3fbe9f98ddb6464d62b533070466ce9",
+  "cost_phase_mcs": 10000
+}

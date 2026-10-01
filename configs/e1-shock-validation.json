@@ -1,0 +1,31 @@
+{
+  "stage": "E1_shock_validation",
+  "protocol_version": "memory_resilience_v1.1_candidate",
+  "root_seed": 2026100103,
+  "nodes": 1000,
+  "edges": 1600,
+  "training_mcs": 100000,
+  "workers": 4,
+  "point_priority": [
+    0,
+    9,
+    21
+  ],
+  "replicates": 10,
+  "primary_delta": 0.3,
+  "secondary_delta": 0.1,
+  "recovery_range": [
+    75,
+    1000
+  ],
+  "minimum_moderate": 8,
+  "hidden_gate": {
+    "normalized_gap_change": 0.02,
+    "greedy_fraction_change": 0.02,
+    "visited_fraction_change": 0.01
+  },
+  "script_sha256": {
+    "run_shock_validation.py": "6443161ee7d829b922c3366b546ec6690973dd85da3adda26f0ca2a36970860a",
+    "evaluate_shock_validation.py": "d08e419c3c3487212be42b854eea26a00925a13b2a2f84bfe3e90905284929d4"
+  }
+}

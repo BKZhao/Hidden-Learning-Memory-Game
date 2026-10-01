@@ -1,0 +1,49 @@
+{
+  "protocol_version": "memory_resilience_v1.1",
+  "status": "locked",
+  "n": 1000,
+  "group_size": 5,
+  "edges": 1600,
+  "mean_hyperdegree": 8,
+  "r": 0.55,
+  "alpha": 0.02,
+  "beta": 0.4,
+  "delta": 0.3,
+  "response_mcs": 5000,
+  "independent_networks": 20,
+  "training_histories": 2,
+  "future_replicates": 10,
+  "selection_times": [
+    100000,
+    200000,
+    500000
+  ],
+  "root_seed": 2026100106,
+  "workers": 4,
+  "maximum_micro_updates": 33200012800,
+  "minimum_effect": 0.02,
+  "analysis_seed": 2026100107,
+  "bootstrap_replicates": 10000,
+  "missing_policy": "available qualifying histories within network; exclude entirely unqualified network; report effective H/B; no replacement",
+  "pilot_evidence": "artifacts/power-pilot-20261001/analysis/planning.json",
+  "pilot_evidence_sha256": "635598d51ea4ff4b9a726a19c9684d49ce92e313eca60c93ea5911325abb777c",
+  "pilot_network_hashes": [
+    "ebb498e8f29db733e7d8abdbd5e674ea9ac7ccf98a8ea5df4fc3216f74d6c98b",
+    "982cd08a4a2ca11332886572f9643306eb09bfdff76bb8897196136d95fc8b5f",
+    "8dd3e3bf032475b012940dae7fc27c17cc0c9ddd60f02433663993c64a32ac19",
+    "b5ea55d5449cff415401cbf0d0d781e22a57d9b944f7ea355fb9efc27be09f11",
+    "5a3e3773e88a90d2648b5e867ef9b573dd3368d523eae53d5d276f9a5f07c747",
+    "0cdee5eb133fd0b817a800647335932b1a204a6600b8f82fee2e7d73636e3ff0",
+    "3f458dc814753a6094c592d9add3b6d948323e2ae8e27ba5aa532f344a8d6adb",
+    "83c725b0402a8019b026403288abf5780fe382c0d0c3c66c792f4b52c277b676",
+    "6cf932b3c693e18123574c081a5de26e81bcb993fdc5193f674929de39724e6a",
+    "4f23192a68232bd7f7d475554df4fa4c89351f116745bb59810f93c65bf58056"
+  ],
+  "work_point_lock": "configs/work-point-v1.1.json",
+  "code_version": "221baa0d1e4f492f67365f1e0e80e7882e35f18bf7d6c386d529087fd4b0f858",
+  "script_sha256": {
+    "run_confirmatory.py": "b1250fe3f4769b07b124193d9303a02deea68150214e827f7fb76aae6ddc233c",
+    "run_power_pilot.py": "fbc4527094cec798517b9810aff91a2221c637af002039e734a33a270f372005",
+    "analyze_confirmatory.py": "4a865bb6d61cea5135677eec3273bfbb5908431a329acc27ccd965e8a25b3f45"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "claim_supported": "yes",
+  "scope": "variance planning and full frozen controls only",
+  "confidence": "high",
+  "confirmatory_H": 20,
+  "confirmatory_B": 2,
+  "confirmatory_K": 10,
+  "routing": "lock fixed E2 then run fresh networks",
+  "paper_claim_audit": "unavailable",
+  "pending_external_review": false
+}

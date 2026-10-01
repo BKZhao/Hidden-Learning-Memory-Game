@@ -1,0 +1,22 @@
+{
+  "stage": "power_pilot",
+  "protocol_version": "memory_resilience_v1.1",
+  "point": 0,
+  "root_seed": 2026100104,
+  "networks": 10,
+  "future_replicates": 3,
+  "training_histories": 1,
+  "training_mcs": 100000,
+  "response_mcs": 5000,
+  "workers": 4,
+  "checkpoint_rule": "public_training_gate_at_100000_all_planned_networks",
+  "source_campaign": "artifacts/e1-shock-20261001",
+  "work_point_lock": "configs/work-point-v1.1.json",
+  "work_point_lock_sha256": "e2455f3f6e503266b84d544a5e8a1d6f701798bcb17167d57ac0cd888143f5bf",
+  "launcher_sha256": "fbc4527094cec798517b9810aff91a2221c637af002039e734a33a270f372005",
+  "minimum_effect": 0.02,
+  "minimum_confirmatory_networks": 20,
+  "maximum_confirmatory_networks": 40,
+  "bootstrap_seed": 2026100105,
+  "bootstrap_replicates": 10000
+}

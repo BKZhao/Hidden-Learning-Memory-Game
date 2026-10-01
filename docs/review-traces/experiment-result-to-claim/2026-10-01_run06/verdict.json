@@ -1,0 +1,15 @@
+{
+  "claim_supported": "partial",
+  "prespecified_paired_endpoint_supported": true,
+  "confidence": "high",
+  "theta": 0.010679797,
+  "ci": [
+    0.0101778404625,
+    0.0111792224125
+  ],
+  "reaches_minimum_effect": false,
+  "routing": "narrow_claim_and_mechanism_review",
+  "paper_claim_audit": "unavailable",
+  "writing_verdict": "provisional",
+  "pending_external_review": false
+}

@@ -1,0 +1,18 @@
+{
+  "status": "work_point_locked",
+  "protocol_version": "memory_resilience_v1.1",
+  "point": 0,
+  "r": 0.55,
+  "alpha": 0.02,
+  "beta": 0.4,
+  "delta": 0.3,
+  "secondary_delta": 0.1,
+  "generalization_candidates": [
+    21
+  ],
+  "locked_utc": "2026-10-01T09:00:48.865750+00:00",
+  "selection_rule": "first passing point in fixed priority [0,9,21]; no near/far effects observed",
+  "validation_verdict": "artifacts/e1-shock-20261001/validation/verdict.json",
+  "validation_sha256": "bd58b4eb8192cfdf6c844ef9c9f46696c557df03264d0425eef4d22a05b82bf2",
+  "confirmatory_samples_locked": false
+}

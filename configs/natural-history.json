@@ -1,0 +1,36 @@
+{
+  "scope": "E4 exploratory natural cost histories and common-support gap transplant",
+  "source": "artifacts/e2-20261001",
+  "networks": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "history": 0,
+  "training_mcs": 100000,
+  "alpha_high": 0.3,
+  "wash_mcs": [
+    0,
+    1000,
+    10000
+  ],
+  "root_seed": 2026100120,
+  "workers": 4,
+  "minimum_pool": 20,
+  "minimum_rows": 30,
+  "minimum_fraction": 0.2,
+  "response_mcs": 5000,
+  "delta": 0.3,
+  "bootstrap_seed": 2026100121,
+  "maximum_micro_updates": 2730000000,
+  "source_sha256": "c026f8f1ec691ad407b88b65833b974eed2c22dcd496e029310051b3ee3034b0",
+  "launcher_sha256": "6d508a8a5f44f7755fe0a9f30a0cfc7651cc49aab54ba9e5c7551e00041c3c26",
+  "plan_sha256": "67e8f37dbd7dc73d4cf00c41ac6bf7c3416c17190c6ad449148e7ff237d565d2"
+}
