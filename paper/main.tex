@@ -1,0 +1,40 @@
+\documentclass[5p,authoryear]{elsarticle}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\setlength{\emergencystretch}{1.5em}
+\usepackage{amsmath,amssymb,booktabs,graphicx,tikz,placeins}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+\usetikzlibrary{arrows.meta,positioning}
+\graphicspath{{../artifacts/paper-draft/figures/}}
+\journal{Research draft}
+\newcommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\makeatletter
+\def\ps@pprintTitle{\let\@oddhead\@empty\let\@evenhead\@empty
+  \def\@oddfoot{\footnotesize Research draft --- 1 October 2026\hfill\thepage}
+  \let\@evenfoot\@oddfoot}
+\makeatother
+\begin{document}
+\begin{frontmatter}
+\title{Hidden action values and transient shock responses in a hypergraph public goods game}
+\author{Anonymous authors}
+\begin{abstract}
+\input{../artifacts/paper-draft/sections/abstract.tex}
+\end{abstract}
+\begin{keyword}
+Public goods game \sep Q-learning \sep Punishment \sep Hidden action values \sep Paired simulation \sep Hypergraphs
+\end{keyword}
+\end{frontmatter}
+\input{../artifacts/paper-draft/sections/introduction.tex}
+\input{../artifacts/paper-draft/sections/model.tex}
+\input{../artifacts/paper-draft/sections/results.tex}
+\FloatBarrier
+\input{../artifacts/paper-draft/sections/conclusion.tex}
+\appendix
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\input{../artifacts/paper-draft/sections/appendix.tex}
+\FloatBarrier
+\bibliographystyle{elsarticle-harv}
+\bibliography{references}
+\end{document}

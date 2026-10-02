@@ -58,7 +58,7 @@ def main() -> None:
         raise ValueError('Paired-cost implementation differs from lock')
     tasks = []
     for network in config['networks']:
-        cp = Path(config['source'])/'histories'/f'network-{network:02d}-history-0/checkpoints/mcs-100000.npz'
+        cp = Path(config['source'])/'histories'/f"network-{network:02d}-history-{config.get('history', 0)}/checkpoints/mcs-100000.npz"
         _, _, _, meta = load_checkpoint(cp)
         tasks.append({'network': network, 'checkpoint': str(cp), 'checkpoint_checksum': meta['checksum'],
                       'output': str(args.output), 'config': config})

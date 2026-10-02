@@ -20,10 +20,25 @@ def analyze(history: Path, response: Path) -> dict:
     config = json.loads((history/'config.json').read_text())
     records = [json.loads(s) for s in (history/'results.jsonl').read_text().splitlines()]
     outcomes = [json.loads(s) for s in (response/'results.jsonl').read_text().splitlines()]
+    response_config = json.loads((response/'config.json').read_text())
+    expected = response_config['networks']
+    if sorted(r['network'] for r in records) != config['networks']:
+        raise ValueError('Missing or duplicate input-audit network')
+    excluded = [r['network'] for r in records if r['network'] not in expected]
+    if excluded and 'response_gate' not in response_config:
+        raise ValueError('Response exclusions require a prior input-only gate')
+    if 'response_gate' in response_config:
+        gate_path = Path(response_config['response_gate'])
+        if file_hash(gate_path) != response_config['response_gate_sha256']:
+            raise ValueError('Response gate changed')
+        gate = json.loads(gate_path.read_text())
+        if gate['status'] != 'passed' or gate['approved_networks'] != expected:
+            raise ValueError('Response set differs from prior gate')
+    records = [r for r in records if r['network'] in expected]
     for root in (history, response):
         if json.loads((root/'status.json').read_text())['state'] != 'completed': raise ValueError('Incomplete E4 stage')
     for rows in (records, outcomes):
-        if sorted(r['network'] for r in rows) != config['networks']: raise ValueError('Missing or duplicate network')
+        if sorted(r['network'] for r in rows) != expected: raise ValueError('Missing or duplicate network')
     if len({r['network_hash'] for r in records}) != len(records): raise ValueError('Repeated graphs')
     output = response/'analysis'; output.mkdir(exist_ok=False)
     shutil.copyfile(__file__, output/Path(__file__).name)
@@ -70,7 +85,11 @@ def analyze(history: Path, response: Path) -> dict:
                         if not np.isclose(loss, details[name]['loss'], atol=1e-14, rtol=0): raise ValueError('Raw loss mismatch')
                     if details['theta_low_minus_high'] is not None:
                         target = transplant_theta if group == 'transplant' else raw_theta
-                        target.setdefault(wash, []).append((network, details['theta_low_minus_high']))
+                        theta = float(np.mean(data[f'{group}_low_z0_q'][1:]-data[f'{group}_low_z1_q'][1:])
+                                      - np.mean(data[f'{group}_high_z0_q'][1:]-data[f'{group}_high_z1_q'][1:]))
+                        if not np.isclose(theta, details['theta_low_minus_high'], atol=1e-14, rtol=0):
+                            raise ValueError('Raw theta mismatch')
+                        target.setdefault(wash, []).append((network, theta))
                 low_losses.setdefault(wash, []).append(outcome['groups']['raw']['low']['loss'])
                 for name, z in [('low', 0), ('low', 1), ('high', 0)]:
                     key = f'raw_{name}_z{z}_q'
@@ -120,7 +139,7 @@ def analyze(history: Path, response: Path) -> dict:
                 idx = np.random.default_rng(config['bootstrap_seed']).integers(0, len(values), size=(10000, len(values)))
                 item['ci95_network'] = np.quantile(values[idx].mean(axis=1), [.025, .975]).tolist()
             paired_changes.append(item)
-    report = {'paired_wash_changes': paired_changes, 'scope': 'Exploratory natural history; nonoverlap is not a zero effect', 'washouts': summaries,
+    report = {'excluded_by_input_gate': sorted(excluded), 'paired_wash_changes': paired_changes, 'scope': 'Exploratory natural history; nonoverlap is not a zero effect', 'washouts': summaries,
               'bootstrap_seed': config['bootstrap_seed'], 'bootstrap_draws': 10000,
               'history_seconds': json.loads((history/'status.json').read_text())['elapsed_seconds'],
               'response_seconds': json.loads((response/'status.json').read_text())['elapsed_seconds'],

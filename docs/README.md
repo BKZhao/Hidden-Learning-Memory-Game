@@ -28,4 +28,14 @@
 - [E4b同起点成本阶段修订](plans/paired-cost-history-v1.1.md)
 - [E4b结果与识别边界](e4b-results.md)
 
+- [E4c支持校准固定设计](plans/natural-support-calibration-v1.1.md)
+- [E4c合法自然移植与效应区间](e4c-results.md)
+
+- [E5密集相图固定设计](plans/dense-phase-v1.0.md)
+- [E5密集相图结果与临界脆弱点](dense-phase-results.md)
+
+- [投稿前证据与图表补充建议](plans/paper-readiness.md)
+- [英文研究初稿、PDF与重绘入口](../paper/README.md)
+- [初稿主张—证据与图表设计](plans/paper-draft.md)
+
 原始协议保留在根目录，不复制维护第二份完整协议。实现差异和补充约定集中在 `model.md`。

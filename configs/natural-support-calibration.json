@@ -1,0 +1,53 @@
+{
+  "scope": "E4c input-only support calibration",
+  "source": "artifacts/e2-20261001",
+  "history": 0,
+  "training_mcs": 100000,
+  "wash_mcs": [
+    0,
+    1000,
+    10000
+  ],
+  "root_seed": 2026100140,
+  "workers": 4,
+  "minimum_pool": 20,
+  "minimum_rows": 30,
+  "minimum_fraction": 0.2,
+  "response_mcs": 5000,
+  "delta": 0.3,
+  "bootstrap_seed": 2026100142,
+  "maximum_micro_updates": 2070000000,
+  "source_sha256": "a53d036a5604e8181256f1a37f3d9056220071f8c7b71b9a383839c15d6b581e",
+  "plan_sha256": "62c832b3cd84b36d349981e2aa9fcd72db9f34328fdc4ca32bdd845f1824ee77",
+  "candidates": [
+    {
+      "id": "alpha030-t10",
+      "alpha_high": 0.3,
+      "cost_phase_mcs": 10
+    },
+    {
+      "id": "alpha010-t100",
+      "alpha_high": 0.1,
+      "cost_phase_mcs": 100
+    },
+    {
+      "id": "alpha004-t1000",
+      "alpha_high": 0.04,
+      "cost_phase_mcs": 1000
+    }
+  ],
+  "checkpoints": [
+    "artifacts/e1-shock-20261001/jobs/E1-p00-r00/checkpoints/mcs-100000.npz",
+    "artifacts/e1-shock-20261001/jobs/E1-p00-r01/checkpoints/mcs-100000.npz",
+    "artifacts/e1-shock-20261001/jobs/E1-p00-r02/checkpoints/mcs-100000.npz",
+    "artifacts/e1-shock-20261001/jobs/E1-p00-r03/checkpoints/mcs-100000.npz",
+    "artifacts/e1-shock-20261001/jobs/E1-p00-r04/checkpoints/mcs-100000.npz"
+  ],
+  "minimum_public_q": 0.8,
+  "minimum_calibration_networks": 4,
+  "minimum_validation_networks": 8,
+  "script_sha256": {
+    "calibrate_natural_support.py": "93edc34bd100237ed0742c22b4182a77fe4ac2bda898739a38e02070ecea7cd6",
+    "run_paired_cost_history.py": "47fa8ecce396c2cf1915a8165e212880fdb1a6e6e81914b0f4f441be7da7543a"
+  }
+}

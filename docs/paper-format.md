@@ -4,7 +4,7 @@ Owner：论文作者。输入：用户指定的 Zou–Huang 论文及 Elsevier �
 输出：本项目统一的论文组织和格式约定。范围：后续英文稿件；不提前生成结果或论文结论。
 相关：[实验入口](experiments.md)、[研究协议](../hidden_learning_memory_protocol_v1.docx)。
 
-## 唯一参照论文
+## 主要格式参照与辅助写作参照
 
 Zou, K., & Huang, C. (2026). Cooperation dynamics on hypergraphs with punishment and Q-learning.
 Expert Systems with Applications, 296, 128989. https://doi.org/10.1016/j.eswa.2025.128989
@@ -12,7 +12,11 @@ Expert Systems with Applications, 296, 128989. https://doi.org/10.1016/j.eswa.20
 用户已指定本项目的 paper 以该文为格式与写作组织参照。
 用户现已提供[12页完整正式版](1-s2.0-S0957417425026065-main-2.pdf)。
 已检查首页及模型/结果页渲染，并提取全文核对；模型与图3对照见[原文核对](source-paper-check.md)。
-第二份[信任博弈预印本](2609.24493v1.pdf)作为相关工作材料，暂不替代已指定的格式基准。
+第二份[信任博弈预印本](2609.24493v1.pdf)由用户同时指定为画图与写作参照。
+Guo、Hu、Wang、Liu 的该文题为 *Payoffs and perception mediate environmental feedback in an N-player trust game with Q-learning*，
+首页标记 arXiv:2609.24493v1，2026-09-21。采用其共同学习状态起点、绝对轨迹与配对差并列、直接对照的分析组织；
+四主节和双栏仍以 Zou–Huang 为主，不复制第二篇的环境反馈机制或其 Student-t 区间方法。
+当前可编辑稿与图表见[论文入口](../paper/README.md)，主张与输入对应见[写作设计](plans/paper-draft.md)。
 
 ## 可立即执行的格式约定
 

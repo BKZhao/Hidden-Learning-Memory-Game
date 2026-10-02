@@ -1,0 +1,22 @@
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+    node distance=6mm and 10mm, font=\small,
+    box/.style={draw=black!45,rounded corners=2pt,align=center,inner sep=6pt},
+    arrow/.style={-{Stealth[length=2mm]},draw=black!60}]
+\node[box,text width=31mm] (checkpoint) {Learned checkpoint\\Same graph and strategies\\All $3N$ initial\\policies preserved};
+\node[box,right=of checkpoint,text width=35mm] (gap) {Shared eligible rows\\$d=M-Q_P>10^{-10}$\\$Q'_P=M-\lambda d$};
+\node[box,right=of gap,yshift=18mm,text width=31mm,draw=green!45!black] (near) {Near: $\lambda=0.5$\\$z=0$ and $z=1$};
+\node[box,right=of gap,text width=31mm] (sham) {Sham: $\lambda=1$\\$z=0$ and $z=1$};
+\node[box,right=of gap,yshift=-18mm,text width=31mm,draw=orange!80!black] (far) {Far: $\lambda=2$\\$z=0$ and $z=1$};
+\node[box,right=of sham,text width=34mm] (outcome) {Shared future events\\$L_\lambda=\overline{q_{\lambda,0}-q_{\lambda,1}}$\\$\theta=L_{0.5}-L_2$};
+\draw[arrow] (checkpoint)--(gap);
+\foreach \branch in {near,sham,far} {
+  \draw[arrow] (gap.east)--(\branch.west);
+  \draw[arrow] (\branch.east)--(outcome.west);
+}
+\node[below=26mm of gap,align=center,text width=145mm,xshift=25mm] (control) {Frozen-learning check: disable all Q-updates, retain strategy updates.\\For each fixed $z$, all three intervention levels must have identical behavioral paths.};
+\end{tikzpicture}
+\caption{Controlled six-branch design. At a selected learned checkpoint, the gap intervention preserves every initial policy row. Each intervention level is crossed with no shock ($z=0$) or a contributor-to-defector reset ($z=1$), using the same shock nodes across levels and the same future random events across all six branches. Losses average MCS 1--5000 and retain their signs. The frozen-learning prediction concerns equality across intervention levels within a shock condition; it does not equate shocked and unshocked paths. Schematic boxes represent the design, not measured values.}
+\label{fig:design}
+\end{figure*}

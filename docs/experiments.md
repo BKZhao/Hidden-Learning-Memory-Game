@@ -125,3 +125,33 @@ E2已完成40/40历史、400套配对未来，0失败；见 [结果与基线分�
 源算子owner是`natural_intervention.py`；连续洗脱与支持审计owner是`natural_washout.py`；脚本负责协调、锁定和并行任务。
 原E4执行后提取了共享洗脱模块，其旧锁定配置须配合运行目录的`source.tar.gz`与归档启动器复现；
 不能直接将旧哈希配置与当前源码混用。E4b记录新的源码哈希。历史运行产物均保留。
+
+## E4c输入支持校准→独立验证
+
+[E4c设计与停止规则](plans/natural-support-calibration-v1.1.md)、[结果](e4c-results.md)。
+源模拟和洗脱模块不变；校准协调器复用成本历史worker，门槛生成器负责锁候选与批准响应网络。
+校准不导入或调用未来响应；三个候选全部完成后才按固定优先级选第一项。
+
+```bash
+.venv/bin/python scripts/calibrate_natural_support.py configs/natural-support-calibration.json --output artifacts/e4c-calibration-new
+.venv/bin/python scripts/prepare_natural_validation.py history artifacts/e4c-calibration-new --config configs/e4c-history-new.json
+.venv/bin/python scripts/run_paired_cost_history.py configs/e4c-history-new.json --output artifacts/e4c-history-new
+.venv/bin/python scripts/prepare_natural_validation.py response artifacts/e4c-history-new --config configs/e4c-response-new.json
+.venv/bin/python scripts/run_natural_response.py configs/e4c-response-new.json --output artifacts/e4c-response-new
+.venv-analysis/bin/python scripts/analyze_natural_history.py --history artifacts/e4c-history-new --response artifacts/e4c-response-new
+```
+
+每阶段先检查退出码；门槛不足时prepare返回2且不产生下一阶段配置，不得继续运行后续命令。
+配置和运行输出均使用新路径；历史锁定版本与当前源码不一致时，从对应归档复现，不改旧配置哈希。
+
+## E5密集相图
+
+[固定设计](plans/dense-phase-v1.0.md)与[结果](dense-phase-results.md)。训练、配对响应和汇总依次执行；三个脚本的SHA-256在配置中锁定。
+
+```bash
+.venv/bin/python scripts/run_dense_phase.py configs/dense-phase-v1.0.json --output artifacts/e5-dense-phase-20261001
+.venv/bin/python scripts/run_dense_phase_response.py configs/dense-phase-v1.0.json --training artifacts/e5-dense-phase-20261001 --output artifacts/e5-dense-phase-response-20261001
+.venv/bin/python scripts/summarize_dense_phase.py --training artifacts/e5-dense-phase-20261001 --response artifacts/e5-dense-phase-response-20261001 --output artifacts/e5-dense-phase-20261001/analysis
+```
+
+训练378/378、响应317/317完成且无失败。响应只为通过公开稳定门槛且检查点有足够贡献者的重复创建；其余重复在manifest中记录原因，不补零。
