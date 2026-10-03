@@ -35,6 +35,8 @@
 - [E5密集相图结果与临界脆弱点](dense-phase-results.md)
 
 - [投稿前证据与图表补充建议](plans/paper-readiness.md)
+- [物理学期刊投稿评估](review-traces/physics-submission/2026-10-03.md)
+- [物理投稿补充计划与执行状态](plans/physics-supplement-v1.0.md)
 - [英文研究初稿、PDF与重绘入口](../paper/README.md)
 - [初稿主张—证据与图表设计](plans/paper-draft.md)
 
